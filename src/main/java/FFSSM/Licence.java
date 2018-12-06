@@ -44,6 +44,10 @@ public class Licence {
     public Club getClub() {
         return club;
     }
+     public void setClub(Club e) {
+         
+        club=e;
+    }
 
     /**
      * Est-ce que la licence est valide à la date indiquée ?
@@ -52,7 +56,14 @@ public class Licence {
      **/
     public boolean estValide(Calendar d) {
          // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+         d.add(Calendar.YEAR, -1);
+        if (this.getDelivrance().before(d)){
+            return false;
+        }
+        else{
+            return true;
+        }
+        
     }
 
 }
